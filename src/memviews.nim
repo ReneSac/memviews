@@ -33,10 +33,12 @@ import c_alikes, strutils
 type
   MemView* {.final, pure, shallow.} [T] = object
     data: ptr T
-    len*: int  ## You can access directly to retrive or change the lenght
-               ## of a MemView. Be careful as there is no bounds checking
-               ## when changing the lenght.
-               ## Use the slicing operation for safety.
+    len*: int  ## You can access the `len` field directly to retrive or
+               ## change the lenght of a MemView. 
+               ## Be careful as there is no bounds checking
+               ## when changing the lenght, nor the underlying memory
+               ## allocation automatically resizes.
+               ## Use the slicing operation for more safety.
 
 type SomeIndex = SomeInteger | BackwardsIndex
 
@@ -111,8 +113,8 @@ template viewImpl() =
 proc view*[T; A, B: SomeIndex](data: seq[T], bounds: HSlice[A, B]): MemView[T] {.inline.} =
   ## Creates a view for a part of an seq. It is the equivalent of an slice
   ## but no copies are made.
-  ## If the compile option ``boundsCheck`` is on, it checks if the bounds are
-  ## whichin the seq bounds here. Views can't be larger than the original
+  ## If the compile option `boundsCheck` is on, it checks if the bounds are
+  ## within the seq bounds here. Views can't be larger than the original
   ## data.
   viewImpl()
 
@@ -120,13 +122,13 @@ proc view*[A, B: SomeIndex](data: string, bounds: HSlice[A, B]): MemView[char] {
   ## Creates a view for a part of an string. It is the equivalent of an slice
   ## but no copies are made. Also, there is no guarantee that the view will end
   ## in a `\0`.
-  ## If the compile option "boundsCheck" is on, it checks if the bounds are
-  ## whichin the string bounds here. Views can't be larger than the original
+  ## If the compile option `boundsCheck` is on, it checks if the bounds are
+  ## within the string bounds here. Views can't be larger than the original
   ## data.
   viewImpl()
 
 proc view*[T](data: ptr T; len: Positive): MemView[T] {.inline.} =
-  ## Constructs a view from a pointer to the first element of a contiguous
+  ## Construct a view from a pointer to the first element of a contiguous
   ## memory region and a lenght. Can be used with C pointers for
   ## example.
   ## If you want a slice of the original data, either adjust the
@@ -138,8 +140,8 @@ proc view*[T](data: ptr T; len: Positive): MemView[T] {.inline.} =
 proc view*[T; A, B: SomeIndex](data: MemView[T], bounds: HSlice[A, B]): MemView[T] {.inline.} =
   ## Creates a view for a part of an array, seq or another view. It is the
   ## equivalent of an slice but no copies are made.
-  ## If the compile option ``boundsCheck`` is on, it checks if the bounds are
-  ## whichin the original MemView bounds here. Views can't be larger than the
+  ## If the compile option `boundsCheck` is on, it checks if the bounds are
+  ## within the original MemView bounds here. Views can't be larger than the
   ## original data.
   sliceBoundsCheck(data, bounds)
   result.data = data.data + data^^bounds.a  # pointer arithmetic
@@ -148,16 +150,29 @@ proc view*[T; A, B: SomeIndex](data: MemView[T], bounds: HSlice[A, B]): MemView[
 template view*(data: string | MemView | seq): untyped =
   ## Create a view of the entire seq/string.
   ## It is the equivalent of:
-  ## data.view(0 .. data.high)
+  ## data.view(0 .. ^1)
   data.view(0 ..< data.len)
 
 proc viewAs*[T](origData: MemView[T], destType: typedesc): MemView[destType] {.inline.} =
+  ## Create a view reinterpreting a memory area as a different type.
+  ## Automatically calculates the new lenght based on the
+  ## floor of the division of `origData` byte lenght by `sizeof(destType)`.
   result.len = (origData.len * T.sizeof) div destType.sizeof
   result.data = cast[ptr destType](origData.dataPtr)
 
 proc viewAs*[T](origData: seq[T], destType: typedesc): MemView[destType] {.inline.} =
+  ## Create a view reinterpreting a memory area as a different type.
+  ## Automatically calculates the new lenght based on the
+  ## floor of the division of `origData` byte lenght by `sizeof(destType)`.
   result.len = (origData.len * T.sizeof) div destType.sizeof
   result.data = cast[ptr destType](unsafeaddr(origData[0]))
+
+proc viewAs(origData: string, destType: typedesc): MemView[destType] {.inline.} =
+  ## Create a view reinterpreting a memory area as a different type.
+  ## Automatically calculates the new lenght based on the
+  ## floor of the division of the string lenght (not including the final \0)
+  ## by `sizeof(destType)`.
+  cast[seq[char]](origData).viewAs(destType)
 
 when false:
   {.push boundChecks:off}
@@ -168,11 +183,36 @@ when false:
   {.pop.}
 
 proc `[]`*[T; A, B: SomeIndex](data: MemView[T], bounds: HSlice[A, B]): MemView[T] {.inline.} =
-  ## Same as view().
+  ## Slice operator for MemViews. Same as `data.view(bounds)`.
   data.view(bounds)
 
-## A couple of pretty unsafe convenient procs. 
-## They may be deprecated at any time.
+proc `[]=`*[T; A, B: SomeIndex](data: MemView[T], bounds: HSlice[A, B],
+                                source: MemView[T] | openArray[T] | string) {.inline.} = 
+  ## Slice assigment for MemViews. Non-shallow copy from the right to the left
+  ## side. The lenght of the destination must be the same as the source.
+  ## Unlike those defined for seqs and strings,
+  ## this doesn't perform splicing as it is potentially very slow and
+  ## we can't resize the underlying array in case of growing.
+  ## If the compile option `boundsCheck` is on, it checks if the bounds are
+  ## of the slice are valid and if the both lenghts are the same.
+  ##
+  ## .. code-block:: Nim
+  ##   let s = "abcdef"
+  ##   let v = s.view
+  ##   v[1 ..< ^2] = "xyz"
+  ##   assert v == "axyzef".view
+  sliceBoundsCheck(data, bounds)
+  when compileOption("boundChecks"):  # d:release disables this.
+    let slen = data^^bounds.b - data^^bounds.a + 1
+    if slen != source.len:
+      raise newException(IndexError, "Out of bounds:" &
+        "differing lenghts between slice: " & $slen & " and source: " &
+        $source.len & "." )
+  for i in 0 ..< source.len:
+    data[data^^bounds.a + i] = source[i]
+
+# A couple of pretty unsafe convenient procs. 
+# They may be deprecated at any time.
 
 proc dataPtr*[T](s: MemView[T]): ptr T {.inline.} =
   ## Retrive a pointer to the first element of the data that the view is
@@ -180,12 +220,16 @@ proc dataPtr*[T](s: MemView[T]): ptr T {.inline.} =
   result = s.data
 
 proc advance*[T](s: var MemView[T], x: int = 1) {.inline.} =
-  ## Advance the base of the seq by ``x`` positions. ``x`` can be negative.
-  ## Equivalent to s[x .. ^1] but in-place, unsafe and more efficient.
+  ## Advance the base of the seq by `x` positions. `x` can be negative.
+  ## Equivalent to ``s[x .. ^1]`` but in-place, unsafe and more efficient.
   ## The lenght of the memview can become 0 or negative after calling this proc.
+  ##
+  ## Prefer using standard iterators instead if applicable, for safety and
+  ## ease of use.
+  ## If an updated lenght is not needed every iteration, also consider pure
+  ## pointer arithmetic.
   s.data += x  # pointer arithmetic
   s.len -= x
-  #assert s.len > 0
 
 proc setLen*[T](s: var MemView[T], newLen: int) {.inline.}=
   ## Change the len of a view. Equivalent to using `len=` and equaly unsafe.
@@ -193,7 +237,7 @@ proc setLen*[T](s: var MemView[T], newLen: int) {.inline.}=
   s.len = newLen
 
 proc pop*[T](v: var MemView[T]): T {.inline.} =
-  ## Unsafe! Returns the last element and decrements the lenght of `v`.
+  ## Unsafe! Return the last element and decrement the lenght of `v`.
   ## The calling code is responsible to ensure there is at least one element
   ## left before calling this proc.
   result = v[^1]
@@ -204,7 +248,7 @@ proc top*[T](v: MemView[T]): var T {.inline.} =
   v[^1]
   
 proc add*[T](v: var MemView[T], val: T) {.inline.} =
-  ## Unsafe! Adds an element to a memview, incrementing it's length.
+  ## Unsafe! Add an element to a memview, incrementing it's length.
   ## Unlike with seqs, strings and other native nim types, it will never resize
   ## the underlying data array and, as MemView don't have a capacity field, it 
   ## can't make a meaningful bounds checks either. Both of those things are 
@@ -212,24 +256,17 @@ proc add*[T](v: var MemView[T], val: T) {.inline.} =
   v[+++v.len] = val
 
 
-## Convenience converters.
-
-#converter toMemView*[T](data: var seq[T]): MemView[T] =
-#  data.view(0 .. data.high)
-
-#converter toMemView*(data: var string): MemView[char] =
-#  data.view(0 .. data.high)
-
+# Some conversions
 
 proc allocMemView*(typ: typedesc, len: Natural): MemView[typ] =
-  ## Allocs memory via alloc() and returns in the form of a MemView.
+  ## Alloc memory via alloc() and return it in the form of a MemView.
   ##
   ## Will not be freed automatically by the GC, so it requires a call to
   ## dealloc(mview.dataPtr) after use.
   view(cast[ptr typ](alloc(typ.sizeof * len)), len)
 
 proc alloc0MemView*(typ: typedesc, len: Natural): MemView[typ] =
-  ## Allocs memory via alloc0() and returns in the form of a MemView.
+  ## Alloc memory via alloc0() and return it in the form of a MemView.
   ##
   ## Will not be freed automatically by the GC, so it requires a call to
   ## dealloc(mview.dataPtr) after use. 
@@ -256,7 +293,7 @@ proc toString*(s:MemView[char]): string =
   for i, e in s:
     result[i] = e
 
-## Barebones serialization support:
+# Barebones serialization support:
 
 proc storeToFile*[T](v: MemView[T], fname: string) =
   ## Stores sequence of raw bytes of a MemView to a file, with the
@@ -297,7 +334,7 @@ proc loadFromFile*[T](dest: var seq[T], fname:string) =
   if f.readBuffer(addr dest[0], fsize) != fsize:
     raise newException(IOError, "Couldn't complete read from " & fname)
 
-## Example procs using memviews
+# Example procs using memviews
 
 iterator shallowSplit*(s: MemView[char], seps: set[char] = Whitespace): MemView[char] =
   var last = 0
