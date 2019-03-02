@@ -117,6 +117,14 @@ proc view*[T; A, B: SomeIndex](data: seq[T], bounds: HSlice[A, B]): MemView[T] {
   ## data.
   viewImpl()
 
+proc view*[T; N; A, B: SomeIndex](data: array[N, T], bounds: HSlice[A, B]): MemView[T] {.inline.} =
+  ## Creates a view for a part of an array. It is the equivalent of an slice
+  ## but no copies are made.
+  ## If the compile option `boundsCheck` is on, it checks if the bounds are
+  ## within the array bounds here. Views can't be larger than the original
+  ## data.
+  viewImpl()
+
 proc view*[A, B: SomeIndex](data: string, bounds: HSlice[A, B]): MemView[char] {.inline.} =
   ## Creates a view for a part of an string. It is the equivalent of an slice
   ## but no copies are made. Also, there is no guarantee that the view will end
