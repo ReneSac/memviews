@@ -1,4 +1,3 @@
-#? strongSpaces
 # Copyright (C) 2015, René du R. Sacramento. All rights reserved.
 # Licensed under MIT License. Look at license.txt for more info.
 
