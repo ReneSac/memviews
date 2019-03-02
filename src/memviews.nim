@@ -300,6 +300,11 @@ proc toString*(s:MemView[char]): string =
   for i, e in s:
     result[i] = e
 
+# Hashing support
+import hashes
+proc hash*[T](x: MemView[T]): Hash =
+  hashData(x.dataPtr, T.sizeof * x.len)
+
 # Barebones serialization support:
 
 proc storeToFile*[T](v: MemView[T], fname: string) =
