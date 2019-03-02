@@ -370,6 +370,18 @@ iterator shallowSplit*[T](s: MemView[T], sep: MemView[T] ): MemView[T] =
         inc last
       yield s[first, last-1]
 
+iterator tokenize*(s: MemView[char], seps: set[char] = Whitespace): tuple[
+  token: MemView[char], isSep: bool] =
+  var i = 0
+  while true:
+    var j = i
+    var isSep = j < s.len and s[j] in seps
+    while j < s.len and (s[j] in seps) == isSep: inc(j) 
+    if j > i:
+      yield (s[i ..< j], isSep)
+    else:
+      break
+    i = j
 
 when isMainModule:
   template acesses(test) =
