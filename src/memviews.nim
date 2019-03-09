@@ -261,7 +261,15 @@ proc add*[T](v: var MemView[T], val: T) {.inline.} =
   ## can't make a meaningful bounds checks either. Both of those things are 
   ## responsability of the calling code.
   v[+++v.len] = val
-
+ 
+proc add*[T](v: var MemView[T], m: MemView[T]) {.inline.} =
+  ## Unsafe! Appends the `m` memview to `v` memview, incrementing it's length.
+  ## Unlike with seqs, strings and other native nim types, it will never resize
+  ## the underlying data array and, as MemView don't have a capacity field, it 
+  ## can't make a meaningful bounds checks either. Both of those things are 
+  ## responsability of the calling code.
+  for val in m:
+    v[+++v.len] = val
 
 # Some conversions
 
