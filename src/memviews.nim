@@ -30,7 +30,7 @@
 import c_alikes, strutils
 
 type
-  MemView* {.final, pure, shallow.} [T] = object
+  MemView*[T] {.final, pure, shallow.} = object
     data: ptr T
     len*: int  ## You can access the `len` field directly to retrive or
                ## change the lenght of a MemView. 
@@ -46,16 +46,15 @@ template `^^`(s, i: untyped): untyped =
 
 template xBoundsCheck(s, i) =
   # Bounds check for the array like acceses.
-  when compileOption("boundChecks"):  # d:release should disable this.
+  when compileOption("boundChecks"):  # d:danger should disable this.
     if unlikely(i >= s.len or i < 0): 
-      raise newException(IndexError,
-                         "Out of bounds: " & $i & " > " & $(s.len-1))
+      if s.len == 0:
+        raise newException(IndexError,
+                           "index out of bounds, the memview is empty")
+      else:
+        raise newException(IndexError,
+                           "index " & $i & " not in 0 .. " & $(s.len-1))
   discard
-
-#proc `[]`*[T](s: MemView[T], i: int) : T {.inline.} =
-#  ## Array like access of element ``i``.
-#  xBoundsCheck(s, i)
-#  return s.data[i]
 
 proc `[]`*[T](s: MemView[T], i: SomeIndex): var T {.inline.} =
   ## Mutable array like access of element ``i``.
@@ -97,8 +96,9 @@ proc `==`*[T](a, b: MemView[T]): bool {.inline.} =
   return true
 
 template sliceBoundsCheck(data, bounds) =
-  when compileOption("boundChecks"):  # d:release disables this.
-    if data^^bounds.a < 0 or (0 + data^^bounds.b) >= data.len:
+  when compileOption("boundChecks"):  # d:danger disables this.
+    if unlikely(data^^bounds.a < 0 or (data^^bounds.b) >= data.len or
+                data^^bounds.a > data^^bounds.b):
       raise newException(IndexError, "Out of bounds: asked for [" &
                           $(data^^bounds.a) & ", " & $(data^^bounds.b) &
                           "] from [0, " & $data.len & "].")
@@ -106,8 +106,9 @@ template sliceBoundsCheck(data, bounds) =
 
 template viewImpl() =
   sliceBoundsCheck(data, bounds)
-  result.data = unsafeAddr(data[data^^bounds.a])
+  result.data = if data.len == 0: nil else: unsafeAddr(data[data^^bounds.a])
   result.len = data^^bounds.b - data^^bounds.a + 1
+  #assert not compileOption("boundChecks") #TODO: report bug that this compile option is not being broadcasted to the code
 
 proc view*[T; A, B: SomeIndex](data: seq[T], bounds: HSlice[A, B]): MemView[T] {.inline.} =
   ## Creates a view for a part of an seq. It is the equivalent of an slice
@@ -181,14 +182,6 @@ proc viewAs(origData: string, destType: typedesc): MemView[destType] {.inline.} 
   ## by `sizeof(destType)`.
   cast[seq[char]](origData).viewAs(destType)
 
-when false:
-  {.push boundChecks:off}
-  let bounds: HSlice[A, B] = origData.low .. ((origData.len * T.sizeof) div destType.sizeof)-1
-  var data = cast[seq[destType]](origData)
-  assert unsafeaddr(data[0]) == unsafeaddr(origData[0])
-  viewImpl()
-  {.pop.}
-
 proc `[]`*[T; A, B: SomeIndex](data: MemView[T], bounds: HSlice[A, B]): MemView[T] {.inline.} =
   ## Slice operator for MemViews. Same as `data.view(bounds)`.
   data.view(bounds)
@@ -200,7 +193,7 @@ proc `[]=`*[T; A, B: SomeIndex](data: MemView[T], bounds: HSlice[A, B],
   ## Unlike those defined for seqs and strings,
   ## this doesn't perform splicing as it is potentially very slow and
   ## we can't resize the underlying array in case of growing.
-  ## If the compile option `boundsCheck` is on, it checks if the bounds are
+  ## If the compile option `boundsCheck` is on, it checks if the bounds
   ## of the slice are valid and if the both lenghts are the same.
   ##
   ## .. code-block:: Nim
@@ -209,22 +202,22 @@ proc `[]=`*[T; A, B: SomeIndex](data: MemView[T], bounds: HSlice[A, B],
   ##   v[1 ..< ^2] = "xyz"
   ##   assert v == "axyzef".view
   sliceBoundsCheck(data, bounds)
-  when compileOption("boundChecks"):  # d:release disables this.
+  when compileOption("boundChecks"):  # d:danger disables this.
     let slen = data^^bounds.b - data^^bounds.a + 1
-    if slen != source.len:
+    if unlikely(slen != source.len):
       raise newException(IndexError, "Out of bounds:" &
         "differing lenghts between slice: " & $slen & " and source: " &
         $source.len & "." )
   for i in 0 ..< source.len:
     data[data^^bounds.a + i] = source[i]
 
-# A couple of pretty unsafe convenient procs. 
-# They may be deprecated at any time.
-
 proc dataPtr*[T](s: MemView[T]): ptr T {.inline.} =
   ## Retrive a pointer to the first element of the data that the view is
   ## accessing.
   result = s.data
+
+# A couple of pretty unsafe convenient procs. 
+# They may be deprecated at any time.
 
 proc advance*[T](s: var MemView[T], x: int = 1) {.inline.} =
   ## Advance the base of the seq by `x` positions. `x` can be negative.
@@ -403,9 +396,6 @@ when isMainModule:
     echo test[2]
     echo "last:", test[^1], " space ", test[test.len - 1]
 
-  proc testAcceptance(s: MemView) =
-    echo s[1]
-
   var s = @[1,2,3,4,5,6,7,8,9]
   #import times
   #s.add(int times.getTime()) # trying to force it to be allocated on the heap
@@ -423,7 +413,6 @@ when isMainModule:
     x = 0
 
   echo test
-  #testAcceptance(s)
 
   var str = ""
   str &= "abcdef"

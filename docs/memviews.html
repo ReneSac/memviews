@@ -16,7 +16,7 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>Module memviews</title>
+<title>memviews</title>
 <style type="text/css" >
 /*
 Stylesheet for use with Docutils/rst2html.
@@ -27,232 +27,130 @@ customize this style sheet.
 Modified from Chad Skeeters' rst2html-style
 https://bitbucket.org/cskeeters/rst2html-style/
 
-Modified by Boyd Greenfield
+Modified by Boyd Greenfield and narimiran
 */
-/* SCSS variables */
-/* Text weights */
-/* Body colors */
-/* Text colors */
-/* Link colors */
-/* Syntax highlighting colors */
-/* Pct changes */
-/* Mixins */
-/* Body/layout */
+
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
-/* Where we want fancier font if available */
-h1, h2, h3, h4, h5, h6, p.module-desc, table.docinfo + blockquote p, table.docinfo blockquote p, h1 + blockquote p {
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif !important; }
-
-h1.title {
-  font-weight: 900; }
-
 body {
   font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  color: #444;
-  letter-spacing: 0.15px;
-  background-color: #FDFBFA; }
+  font-size: 1.125em;
+  line-height: 1.5;
+  color: #222;
+  background-color: #FCFCFC; }
 
 /* Skeleton grid */
 .container {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 1050px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
   box-sizing: border-box; }
 
 .column,
 .columns {
   width: 100%;
   float: left;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin-left: 1%;
+}
 
-/* For devices larger than 400px */
-@media (min-width: 400px) {
-  .container {
-    width: 100%;
-    padding: 0; } }
-/* For devices larger than 650px */
-@media (min-width: 650px) {
-  .container {
-    width: 100%; }
+.column:first-child,
+.columns:first-child {
+  margin-left: 0; }
 
-  .column,
-  .columns {
-    margin-left: 4%; }
+.three.columns {
+  width: 19%; }
 
-  .column:first-child,
-  .columns:first-child {
-    margin-left: 0; }
+.nine.columns {
+  width: 80.0%; }
 
-  .one.column,
-  .one.columns {
-    width: 4.66666666667%; }
+.twelve.columns {
+  width: 100%;
+  margin-left: 0; }
 
-  .two.columns {
-    width: 13.3333333333%; }
-
+@media screen and (max-width: 860px) {
   .three.columns {
-    width: 22%; }
-
-  .four.columns {
-    width: 30.6666666667%; }
-
-  .five.columns {
-    width: 39.3333333333%; }
-
-  .six.columns {
-    width: 48%; }
-
-  .seven.columns {
-    width: 56.6666666667%; }
-
-  .eight.columns {
-    width: 65.3333333333%; }
-
+    display: none;
+  }
   .nine.columns {
-    width: 74.0%; }
-
-  .ten.columns {
-    width: 82.6666666667%; }
-
-  .eleven.columns {
-    width: 91.3333333333%; }
-
-  .twelve.columns {
-    width: 100%;
-    margin-left: 0; }
-
-  .one-third.column {
-    width: 30.6666666667%; }
-
-  .two-thirds.column {
-    width: 65.3333333333%; } }
-/* Customer Overrides */
-.footer {
-  text-align: center;
-  color: #969696;
-  padding-top: 10%; }
-
-p.module-desc {
-  font-size: 1.1em;
-  color: #666666; }
-
-a.link-seesrc {
-  color: #aec7d2;
-  font-style: italic; }
-
-a.link-seesrc:hover {
-  color: #6c9aae; }
-
-#toc-list {
-  word-wrap: break-word; }
-
-ul.simple-toc {
-  list-style: none; }
-
-ul.simple-toc a.reference-toplevel {
-  font-weight: bold;
-  color: #0077b3; }
-
-ul.simple-toc-section {
-  list-style-type: circle;
-  color: #6c9aae; }
-
-ul.simple-toc-section a.reference {
-  color: #0077b3; }
+    width: 98.0%;
+  }
+  body {
+    font-size: 1em;
+    line-height: 1.35;
+  }
+}
 
 cite {
   font-style: italic !important; }
 
-dt > pre {
-  border-color: rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.3);
-  margin: 15px 0px 5px; }
-
-dd > pre {
-  border-color: rgba(0, 0, 0, 0.1);
-  background-color: whitesmoke;
-  margin-top: 8px; }
-
-.item > dd {
-  margin-left: 10px;
-  margin-bottom: 30px; }
-
-/* Nim line-numbered tables */
-.line-nums-table {
-  width: 100%;
-  table-layout: fixed; }
 
 /* Nim search input */
 div#searchInputDiv {
-  margin-bottom: 8px;
+  margin-bottom: 1em;
 }
-div#searchInputDiv input#searchInput {
-  width: 10em;
-}
-div.search-groupby {
-  margin-bottom: 8px;
+input#searchInput {
+  width: 80%;
 }
 
-table.line-nums-table {
-  border-radius: 4px;
-  border: 1px solid #cccccc;
-  background-color: whitesmoke;
-  border-collapse: separate;
-  margin-top: 15px;
-  margin-bottom: 25px; }
-
-.line-nums-table tbody {
-  border: none; }
-
-.line-nums-table td pre {
-  border: none;
-  background-color: transparent; }
-
-.line-nums-table td.blob-line-nums {
-  width: 28px; }
-
-.line-nums-table td.blob-line-nums pre {
-  color: #b0b0b0;
-  -webkit-filter: opacity(75%);
-  text-align: right;
-  border-color: transparent;
-  background-color: transparent;
-  padding-left: 0px;
-  margin-left: 0px;
-  padding-right: 0px;
-  margin-right: 0px; }
+/*
+ * Some custom formatting for input forms.
+ * This also fixes input form colors on Firefox with a dark system theme on Linux.
+ */
+input {
+  -moz-appearance: none;
+  color: #333;
+  background-color: #f8f8f8;
+  border: 1px solid #aaa;
+  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+  padding: 6px;
+}
+input:focus {
+  border: 1px solid #1fa0eb;
+  box-shadow: 0 0 2px #1fa0eb;
+}
 
 /* Docgen styles */
 /* Links */
 a {
-  color: #0077b3;
-  text-decoration: none; }
+  color: #07b;
+  text-decoration: none;
+}
+
+a span.Identifier {
+  text-decoration: underline;
+  text-decoration-color: #aab;
+}
+
+a.reference-toplevel {
+  font-weight: bold;
+}
+
+a.toc-backref {
+  text-decoration: none;
+  color: #222; }
+
+a.link-seesrc {
+  color: #607c9f;
+  font-size: 0.9em;
+  font-style: italic; }
 
 a:hover,
 a:focus {
-  color: #00334d;
+  color: #607c9f;
   text-decoration: underline; }
 
-a:visited {
-  color: #00334d; }
+a:hover span.Identifier {
+  color: #607c9f;
+}
 
-a:focus {
-  outline: thin dotted #2d2d2d;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px; }
-
-a:hover,
-a:active {
-  outline: 0; }
 
 sub,
 sup {
@@ -329,379 +227,258 @@ img {
 
   h2,
   h3 {
-    page-break-after: avoid; } }
-.img-rounded {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px; }
+    page-break-after: avoid; }
+}
 
-.img-polaroid {
-  padding: 4px;
-  background-color: rgba(252, 248, 244, 0.75);
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
 
 p {
-  margin: 0 0 8px; }
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
 
 small {
   font-size: 85%; }
 
 strong {
-  font-weight: 600; }
+  font-weight: 600;
+  font-size: 0.95em;
+  color: #3c3c3c;
+}
 
 em {
   font-style: italic; }
 
-cite {
-  font-style: normal; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  line-height: 20px;
-  color: inherit;
-  text-rendering: optimizelegibility; }
-
 h1 {
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: 400;
-  padding-bottom: .15em;
-  border-bottom: 1px solid #aaaaaa;
-  margin-top: 1.0em;
+  padding-bottom: .25em;
+  border-bottom: 1px solid #aaa;
+  margin-top: 2.5em;
+  margin-bottom: 1em;
   line-height: 1.2em; }
 
 h1.title {
   padding-bottom: 1em;
   border-bottom: 0px;
-  font-size: 2.75em; }
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: 900;
+  margin-top: 0.75em;
+  margin-bottom: 0em;
+}
 
 h2 {
-  font-size: 1.5em;
-  margin-top: 1.5em; }
+  font-size: 1.3em;
+  margin-top: 2em; }
+
+h2.subtitle {
+  text-align: center; }
 
 h3 {
-  font-size: 1.3em;
+  font-size: 1.125em;
   font-style: italic;
-  margin-top: 0.75em; }
+  margin-top: 1.5em; }
 
 h4 {
-  font-size: 1.3em;
-  margin-top: 0.5em; }
+  font-size: 1.125em;
+  margin-top: 1em; }
 
 h5 {
-  font-size: 1.2em;
-  margin-top: 0.25em; }
+  font-size: 1.125em;
+  margin-top: 0.75em; }
 
 h6 {
   font-size: 1.1em; }
 
+
 ul,
 ol {
   padding: 0;
-  margin: 0 0 0px 15px; }
+  margin-top: 0.5em;
+  margin-left: 0.75em; }
 
 ul ul,
 ul ol,
 ol ol,
 ol ul {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  margin-left: 1.25em; }
 
 li {
-  line-height: 20px; }
-
-dl {
-  margin-bottom: 20px; }
-
-dt,
-dd {
-  line-height: 20px; }
-
-dt {
-  font-weight: bold; }
-
-dd {
-  margin-left: 10px;
-  margin-bottom: 26px; }
-
-hr {
-  margin: 20px 0;
-  border: 0;
-  border-top: 1px solid #eeeeee;
-  border-bottom: 1px solid #ffffff; }
-
-abbr[title],
-abbr[data-original-title] {
-  cursor: help;
-  border-bottom: 1px dotted #999999; }
-
-abbr.initialism {
-  font-size: 90%;
-  text-transform: uppercase; }
-
-blockquote {
-  padding: 0 0 0 15px;
-  margin: 0 0 20px;
-  border-left: 5px solid #EFEBE0; }
-
-table.docinfo + blockquote, table.docinfo blockquote, h1 + blockquote {
-  border-left: 5px solid #c9c9c9;
+    list-style-type: circle;
 }
 
-table.docinfo + blockquote p, table.docinfo blockquote p, h1 + blockquote p {
-  margin-bottom: 0;
-  font-size: 15px;
-  font-weight: 200;
-  line-height: 1.5;
-  font-style: italic; }
+ul.simple-boot li {
+    list-style-type: none;
+    margin-left: 0em;
+    margin-bottom: 0.5em;
+}
 
-q:before,
-q:after,
-blockquote:before,
-blockquote:after {
-  content: ""; }
+ol.simple > li, ul.simple > li {
+  margin-bottom: 0.25em;
+  margin-left: 0.4em }
 
-address {
-  display: block;
-  margin-bottom: 20px;
-  font-style: normal;
-  line-height: 20px; }
+ul.simple.simple-toc > li {
+    margin-top: 1em;
+}
 
-code,
-pre {
-  font-family: "Source Code Pro", Monaco, Menlo, Consolas, "Courier New", monospace;
-  padding: 0 3px 2px;
-  font-weight: 500;
-  font-size: 12px;
-  color: #444444;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px; }
+ul.simple-toc {
+  list-style: none;
+  font-size: 0.9em;
+  margin-left: -0.3em;
+  margin-top: 1em; }
+
+ul.simple-toc > li {
+    list-style-type: none;
+}
+
+ul.simple-toc-section {
+  list-style-type: circle;
+  margin-left: 1em;
+  color: #6c9aae; }
+
+
+ol.arabic {
+  list-style: decimal; }
+
+ol.loweralpha {
+  list-style: lower-alpha; }
+
+ol.upperalpha {
+  list-style: upper-alpha; }
+
+ol.lowerroman {
+  list-style: lower-roman; }
+
+ol.upperroman {
+  list-style: upper-roman; }
+
+ul.auto-toc {
+  list-style-type: none; }
+
+
+dl {
+  margin-bottom: 1.5em; }
+
+dt {
+  margin-bottom: -0.5em;
+  margin-left: 0.0em; }
+
+dd {
+  margin-left: 2.0em;
+  margin-bottom: 3.0em;
+  margin-top: 0.5em; }
+
+
+hr {
+  margin: 2em 0;
+  border: 0;
+  border-top: 1px solid #aaa; }
+
+blockquote {
+  font-size: 0.9em;
+  font-style: italic;
+  padding-left: 0.5em;
+  margin-left: 0;
+  border-left: 5px solid #bbc;
+}
 
 .pre {
   font-family: "Source Code Pro", Monaco, Menlo, Consolas, "Courier New", monospace;
-  font-weight: 600;
-  /*color: #504da6;*/
+  font-weight: 500;
+  font-size: 0.85em;
+  background-color: #f0f3ff;
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 4px;
 }
 
-code {
-  padding: 2px 4px;
-  color: #444444;
-  white-space: nowrap;
-  background-color: white;
-  border: 1px solid #777777; }
-
 pre {
+  font-family: "Source Code Pro", Monaco, Menlo, Consolas, "Courier New", monospace;
+  color: #222;
+  font-weight: 500;
   display: inline-block;
   box-sizing: border-box;
-  min-width: calc(100% - 19.5px);
-  padding: 9.5px;
-  margin: 0.25em 10px 10px 10px;
-  font-size: 15px;
-  line-height: 20px;
+  min-width: 100%;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 0.85em;
   white-space: pre !important;
   overflow-y: hidden;
   overflow-x: visible;
-  background-color: rgba(0, 0, 0, 0.01);
-  border: 1px solid #cccccc;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px; }
-
-pre.prettyprint {
-  margin-bottom: 20px; }
-
-pre code {
-  padding: 0;
-  color: inherit;
-  white-space: pre;
-  overflow-x: visible;
-  background-color: transparent;
-  border: 0; }
+  background-color: ghostwhite;
+  border: 1px solid #dde;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px; }
 
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll; }
 
+
+/* Nim line-numbered tables */
+.line-nums-table {
+  width: 100%;
+  table-layout: fixed; }
+
+table.line-nums-table {
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  background-color: ghostwhite;
+  border-collapse: separate;
+  margin-top: 15px;
+  margin-bottom: 25px; }
+
+.line-nums-table tbody {
+  border: none; }
+
+.line-nums-table td pre {
+  border: none;
+  background-color: transparent; }
+
+.line-nums-table td.blob-line-nums {
+  width: 28px; }
+
+.line-nums-table td.blob-line-nums pre {
+  color: #b0b0b0;
+  -webkit-filter: opacity(75%);
+  text-align: right;
+  border-color: transparent;
+  background-color: transparent;
+  padding-left: 0px;
+  margin-left: 0px;
+  padding-right: 0px;
+  margin-right: 0px; }
+
+
 table {
   max-width: 100%;
   background-color: transparent;
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
   border-collapse: collapse;
-  border-spacing: 0; }
-
-table th, table td {
-  padding: 0px 8px 0px;
+  border-color: #ccc;
+  border-spacing: 0;
+  font-size: 0.9em;
 }
 
-.table {
-  width: 100%;
-  margin-bottom: 20px; }
+table th, table td {
+  padding: 0px 0.5em 0px;
+}
 
-.table th,
-.table td {
-  padding: 8px;
-  line-height: 20px;
-  text-align: left;
-  vertical-align: top;
-  border-top: 1px solid #444444; }
-
-.table th {
+table th {
+  background-color: #e8e8e8;
   font-weight: bold; }
 
-.table thead th {
-  vertical-align: bottom; }
+table th.docinfo-name {
+    background-color: transparent;
+}
 
-.table caption + thead tr:first-child th,
-.table caption + thead tr:first-child td,
-.table colgroup + thead tr:first-child th,
-.table colgroup + thead tr:first-child td,
-.table thead:first-child tr:first-child th,
-.table thead:first-child tr:first-child td {
-  border-top: 0; }
+table tr:hover {
+  background-color: ghostwhite; }
 
-.table tbody + tbody {
-  border-top: 2px solid #444444; }
-
-.table .table {
-  background-color: rgba(252, 248, 244, 0.75); }
-
-.table-condensed th,
-.table-condensed td {
-  padding: 4px 5px; }
-
-.table-bordered {
-  border: 1px solid #444444;
-  border-collapse: separate;
-  *border-collapse: collapse;
-  border-left: 0;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px; }
-
-.table-bordered th,
-.table-bordered td {
-  border-left: 1px solid #444444; }
-
-.table-bordered caption + thead tr:first-child th,
-.table-bordered caption + tbody tr:first-child th,
-.table-bordered caption + tbody tr:first-child td,
-.table-bordered colgroup + thead tr:first-child th,
-.table-bordered colgroup + tbody tr:first-child th,
-.table-bordered colgroup + tbody tr:first-child td,
-.table-bordered thead:first-child tr:first-child th,
-.table-bordered tbody:first-child tr:first-child th,
-.table-bordered tbody:first-child tr:first-child td {
-  border-top: 0; }
-
-.table-bordered thead:first-child tr:first-child > th:first-child,
-.table-bordered tbody:first-child tr:first-child > td:first-child,
-.table-bordered tbody:first-child tr:first-child > th:first-child {
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-topleft: 4px; }
-
-.table-bordered thead:first-child tr:first-child > th:last-child,
-.table-bordered tbody:first-child tr:first-child > td:last-child,
-.table-bordered tbody:first-child tr:first-child > th:last-child {
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-topright: 4px; }
-
-.table-bordered thead:last-child tr:last-child > th:first-child,
-.table-bordered tbody:last-child tr:last-child > td:first-child,
-.table-bordered tbody:last-child tr:last-child > th:first-child,
-.table-bordered tfoot:last-child tr:last-child > td:first-child,
-.table-bordered tfoot:last-child tr:last-child > th:first-child {
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px; }
-
-.table-bordered thead:last-child tr:last-child > th:last-child,
-.table-bordered tbody:last-child tr:last-child > td:last-child,
-.table-bordered tbody:last-child tr:last-child > th:last-child,
-.table-bordered tfoot:last-child tr:last-child > td:last-child,
-.table-bordered tfoot:last-child tr:last-child > th:last-child {
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  -moz-border-radius-bottomright: 4px; }
-
-.table-bordered tfoot + tbody:last-child tr:last-child td:first-child {
-  -webkit-border-bottom-left-radius: 0;
-  border-bottom-left-radius: 0;
-  -moz-border-radius-bottomleft: 0; }
-
-.table-bordered tfoot + tbody:last-child tr:last-child td:last-child {
-  -webkit-border-bottom-right-radius: 0;
-  border-bottom-right-radius: 0;
-  -moz-border-radius-bottomright: 0; }
-
-.table-bordered caption + thead tr:first-child th:first-child,
-.table-bordered caption + tbody tr:first-child td:first-child,
-.table-bordered colgroup + thead tr:first-child th:first-child,
-.table-bordered colgroup + tbody tr:first-child td:first-child {
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-topleft: 4px; }
-
-.table-bordered caption + thead tr:first-child th:last-child,
-.table-bordered caption + tbody tr:first-child td:last-child,
-.table-bordered colgroup + thead tr:first-child th:last-child,
-.table-bordered colgroup + tbody tr:first-child td:last-child {
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-radius-topright: 4px; }
-
-table.docutils th {
-  background-color: #e8e8e8; }
-
-table.docutils tr:hover {
-  background-color: whitesmoke; }
-
-.table-striped tbody > tr:nth-child(odd) > td,
-.table-striped tbody > tr:nth-child(odd) > th {
-  background-color: rgba(252, 248, 244, 0.75); }
-
-.table-hover tbody tr:hover > td,
-.table-hover tbody tr:hover > th {
-  background-color: rgba(241, 222, 204, 0.75); }
-
-table td[class*="span"],
-table th[class*="span"],
-.row-fluid table td[class*="span"],
-.row-fluid table th[class*="span"] {
-  display: table-cell;
-  float: none;
-  margin-left: 0; }
-
-.hero-unit {
-  padding: 60px;
-  margin-bottom: 30px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  color: inherit;
-  background-color: rgba(230, 197, 164, 0.75);
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px; }
-
-.hero-unit h1 {
-  margin-bottom: 0;
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
-  color: inherit; }
-
-.hero-unit li {
-  line-height: 30px; }
 
 /* rst2html default used to remove borders from tables and images */
 .borderless, table.borderless td, table.borderless th {
@@ -722,10 +499,6 @@ table.borderless td, table.borderless th {
 .hidden {
   display: none; }
 
-a.toc-backref {
-  text-decoration: none;
-  color: #444444; }
-
 blockquote.epigraph {
   margin: 2em 5em; }
 
@@ -735,85 +508,6 @@ dl.docutils dd {
 object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
   overflow: hidden; }
 
-/* Uncomment (and remove this text!) to get bold-faced definition list terms
-dl.docutils dt {
-  font-weight: bold }
-*/
-div.abstract {
-  margin: 2em 5em; }
-
-div.abstract p.topic-title {
-  font-weight: bold;
-  text-align: center; }
-
-div.admonition, div.attention, div.caution, div.danger, div.error,
-div.hint, div.important, div.note, div.tip, div.warning {
-  margin: 2em;
-  border: medium outset;
-  padding: 1em; }
-
-div.note, div.warning {
-  margin: 1.5em 0px;
-  border: none; }
-
-div.note p.admonition-title,
-div.warning p.admonition-title {
-  display: none; }
-
-/* Clearfix
- * http://css-tricks.com/snippets/css/clear-fix/
- */
-div.note:after,
-div.warning:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-div.note p:before,
-div.warning p:before {
-  display: block;
-  float: left;
-  font-size: 4em;
-  line-height: 1em;
-  margin-right: 20px;
-  margin-left: 0em;
-  margin-top: -10px;
-  content: '\0270D';
-  /*handwriting*/ }
-
-div.warning p:before {
-  content: '\026A0';
-  /*warning*/ }
-
-div.admonition p.admonition-title, div.hint p.admonition-title,
-div.important p.admonition-title, div.note p.admonition-title,
-div.tip p.admonition-title {
-  font-weight: bold;
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif; }
-
-div.attention p.admonition-title, div.caution p.admonition-title,
-div.danger p.admonition-title, div.error p.admonition-title,
-div.warning p.admonition-title, .code .error {
-  color: #b30000;
-  font-weight: bold;
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif; }
-
-/* Uncomment (and remove this text!) to get reduced vertical space in
-   compound paragraphs.
-div.compound .compound-first, div.compound .compound-middle {
-  margin-bottom: 0.5em }
-
-div.compound .compound-last, div.compound .compound-middle {
-  margin-top: 0.5em }
-*/
-div.dedication {
-  margin: 2em 5em;
-  text-align: center;
-  font-style: italic; }
-
-div.dedication p.topic-title {
-  font-weight: bold;
-  font-style: normal; }
 
 div.figure {
   margin-left: 2em;
@@ -821,7 +515,13 @@ div.figure {
 
 div.footer, div.header {
   clear: both;
+  text-align: center;
+  color: #666;
   font-size: smaller; }
+
+div.footer {
+    padding-top: 5em;
+}
 
 div.line-block {
   display: block;
@@ -833,45 +533,24 @@ div.line-block div.line-block {
   margin-bottom: 0;
   margin-left: 1.5em; }
 
-div.sidebar {
-  margin: 0 0 0.5em 1em;
-  border: medium outset;
-  padding: 1em;
-  background-color: rgba(252, 248, 244, 0.75);
-  width: 40%;
-  float: right;
-  clear: right; }
-
-div.sidebar p.rubric {
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
-  font-size: medium; }
-
-div.system-messages {
-  margin: 5em; }
-
-div.system-messages h1 {
-  color: #b30000; }
-
-div.system-message {
-  border: medium outset;
-  padding: 1em; }
-
-div.system-message p.system-message-title {
-  color: #b30000;
-  font-weight: bold; }
-
 div.topic {
   margin: 2em; }
 
-h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
-h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
-  margin-top: 0.4em; }
+div.search_results {
+  background-color: antiquewhite;
+  margin: 3em;
+  padding: 1em;
+  border: 1px solid #4d4d4d;
+}
 
-h1.title {
-  text-align: center; }
+div#global-links ul {
+  margin-left: 0;
+  list-style-type: none;
+}
 
-h2.subtitle {
-  text-align: center; }
+div#global-links > simple-boot {
+    margin-left: 3em;
+}
 
 hr.docutils {
   width: 75%; }
@@ -905,30 +584,6 @@ img.align-center, .figure.align-center, object.align-center {
 div.align-right {
   text-align: inherit; }
 
-/* div.align-center * { */
-/*   text-align: left } */
-
-ul.simple > li {
-  margin-bottom: 0.5em }
-
-ol.simple, ul.simple {
-  margin-bottom: 1em; }
-
-ol.arabic {
-  list-style: decimal; }
-
-ol.loweralpha {
-  list-style: lower-alpha; }
-
-ol.upperalpha {
-  list-style: upper-alpha; }
-
-ol.lowerroman {
-  list-style: lower-roman; }
-
-ol.upperroman {
-  list-style: upper-roman; }
-
 p.attribution {
   text-align: right;
   margin-left: 50%; }
@@ -948,15 +603,6 @@ p.rubric {
   font-size: larger;
   color: maroon;
   text-align: center; }
-
-p.sidebar-title {
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: larger; }
-
-p.sidebar-subtitle {
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
-  font-weight: bold; }
 
 p.topic-title {
   font-weight: bold; }
@@ -997,21 +643,13 @@ pre.code .inserted, code .inserted {
   background-color: #A3D289; }
 
 span.classifier {
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
   font-style: oblique; }
 
 span.classifier-delimiter {
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
   font-weight: bold; }
-
-span.interpreted {
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif; }
 
 span.option {
   white-space: nowrap; }
-
-span.pre {
-  white-space: pre; }
 
 span.problematic {
   color: #b30000; }
@@ -1019,44 +657,6 @@ span.problematic {
 span.section-subtitle {
   /* font-size relative to parent (h1..h6 element) */
   font-size: 80%; }
-
-table.citation {
-  border-left: solid 1px #666666;
-  margin-left: 1px; }
-
-table.docinfo {
-  margin: 0em;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  font-family: "Lato", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif !important;
-  color: #444444; }
-
-table.docutils {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em; }
-
-table.footnote {
-  border-left: solid 1px #2d2d2d;
-  margin-left: 1px; }
-
-table.docutils td, table.docutils th,
-table.docinfo td, table.docinfo th {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  vertical-align: top; }
-
-table.docutils th.field-name, table.docinfo th.docinfo-name {
-  font-weight: 700;
-  text-align: left;
-  white-space: nowrap;
-  padding-left: 0; }
-
-h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
-h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
-  font-size: 100%; }
-
-ul.auto-toc {
-  list-style-type: none; }
 
 span.DecNumber {
   color: #252dbe; }
@@ -1074,7 +674,7 @@ span.FloatNumber {
   color: #252dbe; }
 
 span.Identifier {
-  color: #3b3b3b; }
+  color: #222; }
 
 span.Keyword {
   font-weight: 600;
@@ -1139,72 +739,63 @@ dt pre > span.Identifier, dt pre > span.Operator {
   color: #155da4;
   font-weight: 700; }
 
-dt pre > span.Identifier ~ span.Identifier, dt pre > span.Operator ~ span.Identifier {
-  color: inherit;
-  font-weight: inherit; }
-
-dt pre > span.Operator ~ span.Identifier {
+dt pre > span.Keyword ~ span.Identifier, dt pre > span.Identifier ~ span.Identifier,
+dt pre > span.Operator ~ span.Identifier, dt pre > span.Other ~ span.Identifier {
   color: inherit;
   font-weight: inherit; }
 
 /* Nim sprite for the footer (taken from main page favicon) */
 .nim-sprite {
   display: inline-block;
-  height: 12px;
-  width: 12px;
+  height: 16px;
+  width: 16px;
   background-position: 0 0;
-  background-size: 12px 12px;
+  background-size: 16px 16px;
   -webkit-filter: opacity(50%);
   background-repeat: no-repeat;
   background-image: url("data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAUAAAAF////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAIAAABbAAAAlQAAAKIAAACbAAAAmwAAAKIAAACVAAAAWwAAAAL///8A////AP///wD///8A////AAAAABQAAADAAAAAYwAAAA3///8A////AP///wD///8AAAAADQAAAGMAAADAAAAAFP///wD///8A////AP///wAAAACdAAAAOv///wD///8A////AP///wD///8A////AP///wD///8AAAAAOgAAAJ3///8A////AP///wAAAAAnAAAAcP///wAAAAAoAAAASv///wD///8A////AP///wAAAABKAAAAKP///wAAAABwAAAAJ////wD///8AAAAAgQAAABwAAACIAAAAkAAAAJMAAACtAAAAFQAAABUAAACtAAAAkwAAAJAAAACIAAAAHAAAAIH///8A////AAAAAKQAAACrAAAAaP///wD///8AAAAARQAAANIAAADSAAAARf///wD///8AAAAAaAAAAKsAAACk////AAAAADMAAACcAAAAnQAAABj///8A////AP///wAAAAAYAAAAGP///wD///8A////AAAAABgAAACdAAAAnAAAADMAAAB1AAAAwwAAAP8AAADpAAAAsQAAAE4AAAAb////AP///wAAAAAbAAAATgAAALEAAADpAAAA/wAAAMMAAAB1AAAAtwAAAOkAAAD/AAAA/wAAAP8AAADvAAAA3gAAAN4AAADeAAAA3gAAAO8AAAD/AAAA/wAAAP8AAADpAAAAtwAAAGUAAAA/AAAA3wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAADfAAAAPwAAAGX///8A////AAAAAEgAAADtAAAAvwAAAL0AAADGAAAA7wAAAO8AAADGAAAAvQAAAL8AAADtAAAASP///wD///8A////AP///wD///8AAAAAO////wD///8A////AAAAAIcAAACH////AP///wD///8AAAAAO////wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//8AAP//AAD4HwAA7/cAAN/7AAD//wAAoYUAAJ55AACf+QAAh+EAAAAAAADAAwAA4AcAAP5/AAD//wAA//8AAA==");
   margin-bottom: -5px; }
-div.pragma {
+
+span.pragmadots {
+  /* Position: relative frees us up to make the dots
+  look really nice without fucking up the layout and
+  causing bulging in the parent container */
+  position: relative;
+  /* 1px down looks slightly nicer */
+  top: 1px;
+  padding: 2px;
+  background-color: #e8e8e8;
+  border-radius: 4px;
+  margin: 0 2px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+span.pragmadots:hover {
+  background-color: #DBDBDB;
+}
+span.pragmawrap {
   display: none;
 }
-span.pragmabegin {
-  cursor: pointer;
-}
-span.pragmaend {
-  cursor: pointer;
-}
 
-div.search_results {
-  background-color: antiquewhite;
-  margin: 3em;
-  padding: 1em;
-  border: 1px solid #4d4d4d;
-}
-
-div#global-links ul {
-  margin-left: 0;
-  list-style-type: none;
+span.attachedType {
+  display: none;
+  visibility: hidden;
 }
 </style>
 
-<script type="text/javascript" src="../dochack.js"></script>
+<script type="text/javascript" src="dochack.js"></script>
 
 <script type="text/javascript">
-function togglepragma(d) {
-  if (d.style.display != 'inline')
-    d.style.display = 'inline';
-  else
-    d.style.display = 'none';
-}
-
 function main() {
-  var elements = document.getElementsByClassName("pragmabegin");
-  for (var i = 0; i < elements.length; ++i) {
-    var e = elements[i];
-    e.onclick = function(event) {
-      togglepragma(event.target.nextSibling);
-    };
-  }
-  var elements = document.getElementsByClassName("pragmaend");
-  for (var i = 0; i < elements.length; ++i) {
-    var e = elements[i];
-    e.onclick = function(event) {
-      togglepragma(event.target.previousSibling);
-    };
+  var pragmaDots = document.getElementsByClassName("pragmadots");
+  for (var i = 0; i < pragmaDots.length; i++) {
+    pragmaDots[i].onclick = function(event) {
+      // Hide tease
+      event.target.parentNode.style.display = "none";
+      // Show actual
+      event.target.parentNode.nextElementSibling.style.display = "inline";
+    }
   }
 }
 </script>
@@ -1213,7 +804,7 @@ function main() {
 <body onload="main()">
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">Module memviews</h1>
+    <h1 class="title">memviews</h1>
     <div class="row">
   <div class="three columns">
   <div id="global-links">
@@ -1233,103 +824,111 @@ function main() {
   </div>
   <ul class="simple simple-toc" id="toc-list">
 <li>
-  <a class="reference reference-toplevel" href="#6" id="56">Imports</a>
-  <ul class="simple simple-toc-section">
-    
-  </ul>
-</li>
-<li>
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
       <li><a class="reference" href="#MemView"
-    title="MemView[T] = object
+    title="MemView[T] {.final, pure, shallow.} = object
   data: ptr T
-  len*: int"><wbr />Mem<wbr />View<span class="attachedType" style="visibility:hidden"></span></a></li>
+  len*: int ## You can access the `len` field directly to retrive or
+          ## change the lenght of a MemView. 
+          ## Be careful as there is no bounds checking
+          ## when changing the lenght, nor the underlying memory
+          ## allocation automatically resizes.
+          ## Use the slicing operation for more safety."><wbr />Mem<wbr />View<span class="attachedType"></span></a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#[],MemView[T],SomeIndex"
-    title="`[]`[T](s: MemView[T]; i: SomeIndex): var T"><wbr />`[]`<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#[]=,MemView[T],SomeIndex,T"
-    title="`[]=`[T](s: MemView[T]; i: SomeIndex; val: T)"><wbr />`[]=`<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#==,MemView[T],MemView[T]"
-    title="`==`[T](a, b: MemView[T]): bool"><wbr />`==`<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#view,seq[T],HSlice[A: SomeIndex,B: SomeIndex]"
-    title="view[T; A, B: SomeIndex](data: seq[T]; bounds: HSlice[A, B]): MemView[T]"><wbr />view<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#view,string,HSlice[A: SomeIndex,B: SomeIndex]"
-    title="view[A, B: SomeIndex](data: string; bounds: HSlice[A, B]): MemView[char]"><wbr />view<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#view,ptr.T,Positive"
-    title="view[T](data: ptr T; len: Positive): MemView[T]"><wbr />view<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#view,MemView[T],HSlice[A: SomeIndex,B: SomeIndex]"
-    title="view[T; A, B: SomeIndex](data: MemView[T]; bounds: HSlice[A, B]): MemView[T]"><wbr />view<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#viewAs,MemView[T],typedesc"
-    title="viewAs[T](origData: MemView[T]; destType: typedesc): MemView[destType]"><wbr />view<wbr />As<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#viewAs,seq[T],typedesc"
-    title="viewAs[T](origData: seq[T]; destType: typedesc): MemView[destType]"><wbr />view<wbr />As<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#[],MemView[T],HSlice[A: SomeIndex,B: SomeIndex]"
-    title="`[]`[T; A, B: SomeIndex](data: MemView[T]; bounds: HSlice[A, B]): MemView[T]"><wbr />`[]`<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#[]=,MemView[T],HSlice[A: SomeIndex,B: SomeIndex],"
+      <li><a class="reference" href="#%5B%5D%2CMemView%5BT%5D%2CSomeIndex"
+    title="`[]`[T](s: MemView[T]; i: SomeIndex): var T"><wbr />`[]`<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#%5B%5D%3D%2CMemView%5BT%5D%2CSomeIndex%2CT"
+    title="`[]=`[T](s: MemView[T]; i: SomeIndex; val: T)"><wbr />`[]=`<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#%3D%3D%2CMemView%5BT%5D%2CMemView%5BT%5D"
+    title="`==`[T](a, b: MemView[T]): bool"><wbr />`==`<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#view%2Cseq%5BT%5D%5BT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"
+    title="view[T; A, B: SomeIndex](data: seq[T]; bounds: HSlice[A, B]): MemView[T]"><wbr />view<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#view%2Carray%5BN%2CT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"
+    title="view[T; N; A, B: SomeIndex](data: array[N, T]; bounds: HSlice[A, B]): MemView[T]"><wbr />view<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#view%2Cstring%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"
+    title="view[A, B: SomeIndex](data: string; bounds: HSlice[A, B]): MemView[char]"><wbr />view<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#view%2Cptr.T%2CPositive"
+    title="view[T](data: ptr T; len: Positive): MemView[T]"><wbr />view<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#view%2CMemView%5BT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"
+    title="view[T; A, B: SomeIndex](data: MemView[T]; bounds: HSlice[A, B]): MemView[T]"><wbr />view<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#viewAs%2CMemView%5BT%5D%2Ctypedesc"
+    title="viewAs[T](origData: MemView[T]; destType: typedesc): MemView[destType]"><wbr />view<wbr />As<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#viewAs%2Cseq%5BT%5D%5BT%5D%2Ctypedesc"
+    title="viewAs[T](origData: seq[T]; destType: typedesc): MemView[destType]"><wbr />view<wbr />As<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#%5B%5D%2CMemView%5BT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"
+    title="`[]`[T; A, B: SomeIndex](data: MemView[T]; bounds: HSlice[A, B]): MemView[T]"><wbr />`[]`<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#%5B%5D%3D%2CMemView%5BT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D%2C"
     title="`[]=`[T; A, B: SomeIndex](data: MemView[T]; bounds: HSlice[A, B];
-                       source: MemView[T] | openArray[T] | string)"><wbr />`[]=`<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#dataPtr,MemView[T]"
-    title="dataPtr[T](s: MemView[T]): ptr T"><wbr />data<wbr />Ptr<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#advance,MemView[T],int"
-    title="advance[T](s: var MemView[T]; x: int = 1)"><wbr />advance<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#setLen,MemView[T],int"
-    title="setLen[T](s: var MemView[T]; newLen: int)"><wbr />set<wbr />Len<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#pop,MemView[T]"
-    title="pop[T](v: var MemView[T]): T"><wbr />pop<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#top,MemView[T]"
-    title="top[T](v: MemView[T]): var T"><wbr />top<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#add,MemView[T],T"
-    title="add[T](v: var MemView[T]; val: T)"><wbr />add<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#allocMemView,typedesc,Natural"
-    title="allocMemView(typ: typedesc; len: Natural): MemView[typ]"><wbr />alloc<wbr />Mem<wbr />View<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#alloc0MemView,typedesc,Natural"
-    title="alloc0MemView(typ: typedesc; len: Natural): MemView[typ]"><wbr />alloc0Mem<wbr />View<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#$,MemView[T]"
-    title="`$`[T](s: MemView[T]): string"><wbr />`$`<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#toSeq,MemView[T]"
-    title="toSeq[T](s: MemView[T]): seq[T]"><wbr />to<wbr />Seq<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#toString,MemView[char]"
-    title="toString(s: MemView[char]): string"><wbr />to<wbr />String<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#storeToFile,MemView[T],string"
-    title="storeToFile[T](v: MemView[T]; fname: string)"><wbr />store<wbr />To<wbr />File<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#loadFromFile,MemView[T],string"
-    title="loadFromFile[T](dest: var MemView[T]; fname: string): int64"><wbr />load<wbr />From<wbr />File<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#loadFromFile,seq[T],string"
-    title="loadFromFile[T](dest: var seq[T]; fname: string)"><wbr />load<wbr />From<wbr />File<span class="attachedType" style="visibility:hidden"></span></a></li>
+                       source: MemView[T] | openArray[T] | string)"><wbr />`[]=`<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#dataPtr%2CMemView%5BT%5D"
+    title="dataPtr[T](s: MemView[T]): ptr T"><wbr />data<wbr />Ptr<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#advance%2CMemView%5BT%5D%2Cint"
+    title="advance[T](s: var MemView[T]; x: int = 1)"><wbr />advance<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#setLen%2CMemView%5BT%5D%2Cint"
+    title="setLen[T](s: var MemView[T]; newLen: int)"><wbr />set<wbr />Len<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#pop%2CMemView%5BT%5D"
+    title="pop[T](v: var MemView[T]): T"><wbr />pop<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#top%2CMemView%5BT%5D"
+    title="top[T](v: MemView[T]): var T"><wbr />top<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#add%2CMemView%5BT%5D%2CT"
+    title="add[T](v: var MemView[T]; val: T)"><wbr />add<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#add%2CMemView%5BT%5D%2CMemView%5BT%5D"
+    title="add[T](v: var MemView[T]; m: MemView[T])"><wbr />add<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#allocMemView%2Ctypedesc%2CNatural"
+    title="allocMemView(typ: typedesc; len: Natural): MemView[typ]"><wbr />alloc<wbr />Mem<wbr />View<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#alloc0MemView%2Ctypedesc%2CNatural"
+    title="alloc0MemView(typ: typedesc; len: Natural): MemView[typ]"><wbr />alloc0Mem<wbr />View<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#%24%2CMemView%5BT%5D"
+    title="`$`[T](s: MemView[T]): string"><wbr />`$`<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#toSeq%2CMemView%5BT%5D"
+    title="toSeq[T](s: MemView[T]): seq[T]"><wbr />to<wbr />Seq<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#toString%2CMemView%5Bchar%5D"
+    title="toString(s: MemView[char]): string"><wbr />to<wbr />String<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#hash%2CMemView%5BT%5D"
+    title="hash[T](x: MemView[T]): Hash"><wbr />hash<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#storeToFile%2CMemView%5BT%5D%2Cstring"
+    title="storeToFile[T](v: MemView[T]; fname: string)"><wbr />store<wbr />To<wbr />File<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#loadFromFile%2CMemView%5BT%5D%2Cstring"
+    title="loadFromFile[T](dest: var MemView[T]; fname: string): int64"><wbr />load<wbr />From<wbr />File<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#loadFromFile%2Cseq%5BT%5D%5BT%5D%2Cstring"
+    title="loadFromFile[T](dest: var seq[T]; fname: string)"><wbr />load<wbr />From<wbr />File<span class="attachedType"></span></a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#15" id="65">Iterators</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#items.i,MemView[T]"
-    title="items[T](s: MemView[T]): T"><wbr />items<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#mitems.i,MemView[T]"
-    title="mitems[T](s: MemView[T]): var T"><wbr />mitems<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#pairs.i,MemView[T]"
-    title="pairs[T](s: MemView[T]): tuple[key: int, val: T]"><wbr />pairs<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#mpairs.i,MemView[T]"
-    title="mpairs[T](s: MemView[T]): tuple[key: int, val: var T]"><wbr />mpairs<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#shallowSplit.i,MemView[char],set[char]"
-    title="shallowSplit(s: MemView[char]; seps: set[char] = Whitespace): MemView[char]"><wbr />shallow<wbr />Split<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#shallowSplit.i,MemView[T],T"
-    title="shallowSplit[T](s: MemView[T]; sep: T): MemView[T]"><wbr />shallow<wbr />Split<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#shallowSplit.i,MemView[T],MemView[T]"
-    title="shallowSplit[T](s: MemView[T]; sep: MemView[T]): MemView[T]"><wbr />shallow<wbr />Split<span class="attachedType" style="visibility:hidden"></span></a></li>
+      <li><a class="reference" href="#items.i%2CMemView%5BT%5D"
+    title="items[T](s: MemView[T]): T"><wbr />items<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#mitems.i%2CMemView%5BT%5D"
+    title="mitems[T](s: MemView[T]): var T"><wbr />mitems<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#pairs.i%2CMemView%5BT%5D"
+    title="pairs[T](s: MemView[T]): tuple[key: int, val: T]"><wbr />pairs<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#mpairs.i%2CMemView%5BT%5D"
+    title="mpairs[T](s: MemView[T]): tuple[key: int, val: var T]"><wbr />mpairs<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#shallowSplit.i%2CMemView%5Bchar%5D%2Cset%5Bchar%5D"
+    title="shallowSplit(s: MemView[char]; seps: set[char] = Whitespace): MemView[char]"><wbr />shallow<wbr />Split<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#shallowSplit.i%2CMemView%5BT%5D%2CT"
+    title="shallowSplit[T](s: MemView[T]; sep: T): MemView[T]"><wbr />shallow<wbr />Split<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#shallowSplit.i%2CMemView%5BT%5D%2CMemView%5BT%5D"
+    title="shallowSplit[T](s: MemView[T]; sep: MemView[T]): MemView[T]"><wbr />shallow<wbr />Split<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#tokenize.i%2CMemView%5Bchar%5D%2Cset%5Bchar%5D"
+    title="tokenize(s: MemView[char]; seps: set[char] = Whitespace): tuple[token: MemView[char],
+    isSep: bool]"><wbr />tokenize<span class="attachedType"></span></a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#18" id="68">Templates</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#view.t,"
-    title="view(data: string | MemView | seq): untyped"><wbr />view<span class="attachedType" style="visibility:hidden"></span></a></li>
+      <li><a class="reference" href="#view.t"
+    title="view(data: string | MemView | seq): untyped"><wbr />view<span class="attachedType"></span></a></li>
 
   </ul>
 </li>
@@ -1339,6 +938,7 @@ function main() {
   </div>
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
+  
   <p class="module-desc"><p>The <tt class="docutils literal"><span class="pre">memviews</span></tt> module implements a very thin wrapper around array like types in Nim or any contiguous memory region you have a pointer to. It can be used to make shallow slices of your data, have a uniform interface to both seq and string (among other types) and acess C arrays more naturally and with optional bounds checking.</p>
 <p>Be carefull with the lifetime of the allocations you are viewing into, as the view possess only an unmanaged pointer to the data. If the GC collects your data, or you explicily deallocate it, this pointer may become invalid and undefined behaviour ensues. You may have to use GC_ref() and GC_unref() to manually stick the memory around.</p>
 <p>The same may happen if the data is reallocated to another point in the memory. For example, when a sequence has to grow as a result of &quot;.add()&quot;. One should abstain to change the original seq in those ways.</p>
@@ -1347,20 +947,22 @@ function main() {
 <table class="docinfo" frame="void" rules="none"><col class="docinfo-name" /><col class="docinfo-content" /><tbody valign="top"><tr><th class="docinfo-name">Author:</th><td> René du R. Sacramento</td></tr>
 <tr><th class="docinfo-name">Copyright:</th><td> 2015-2018</td></tr>
 </tbody></table></p>
-  <div class="section" id="6">
-<h1><a class="toc-backref" href="#6">Imports</a></h1>
-<dl class="item">
-<a class="reference external" href="c_alikes.html">c_alikes</a>, <a class="reference external" href="strutils.html">strutils</a>
-</dl></div>
-<div class="section" id="7">
+  <div class="section" id="7">
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
-<dt id="MemView"><a name="MemView"></a><pre><span class="Identifier">MemView</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">final</span><span class="Other">,</span> <span class="Identifier">pure</span><span class="Other">,</span> <span class="Identifier">shallow</span></div><span class="Other pragmaend">.}</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span class="Other">=</span> <span class="Keyword">object</span>
+<a id="MemView"></a>
+<dt><pre><a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">final</span><span class="Other">,</span> <span class="Identifier">pure</span><span class="Other">,</span> <span class="Identifier">shallow</span></span><span class="Other">.}</span></span> <span class="Other">=</span> <span class="Keyword">object</span>
   <span class="Identifier">data</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span>
-  <span class="Identifier">len</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">int</span>
-</pre></dt>
+  <span class="Identifier">len</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Comment">## You can access the `len` field directly to retrive or</span>
+          <span class="Comment">## change the lenght of a MemView. </span>
+          <span class="Comment">## Be careful as there is no bounds checking</span>
+          <span class="Comment">## when changing the lenght, nor the underlying memory</span>
+          <span class="Comment">## allocation automatically resizes.</span>
+          <span class="Comment">## Use the slicing operation for more safety.</span>
+  </pre></dt>
 <dd>
-You can access the <cite>len</cite> field directly to retrive or change the lenght of a MemView. Be careful as there is no bounds checking when changing the lenght, nor the underlying memory allocation automatically resizes. Use the slicing operation for more safety.
+
+
 
 </dd>
 
@@ -1368,141 +970,213 @@ You can access the <cite>len</cite> field directly to retrive or change the leng
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<dt id="[]"><a name="[],MemView[T],SomeIndex"></a><pre><span class="Keyword">proc</span> <span class="Identifier">`[]`</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">i</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="[],MemView[T],SomeIndex"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%2CMemView%5BT%5D%2CSomeIndex"><span class="Identifier">`[]`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">i</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Mutable array like access of element <tt class="docutils literal"><span class="pre">i</span></tt>.
 
 </dd>
-<dt id="[]="><a name="[]=,MemView[T],SomeIndex,T"></a><pre><span class="Keyword">proc</span> <span class="Identifier">`[]=`</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">i</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="[]=,MemView[T],SomeIndex,T"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%3D%2CMemView%5BT%5D%2CSomeIndex%2CT"><span class="Identifier">`[]=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">i</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Change element <tt class="docutils literal"><span class="pre">i</span></tt> of the view.
 
 </dd>
-<dt id="=="><a name="==,MemView[T],MemView[T]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">`==`</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="==,MemView[T],MemView[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%3D%3D%2CMemView%5BT%5D%2CMemView%5BT%5D"><span class="Identifier">`==`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Compare two views for equality. Two views are equal iff they have the same lenght and for every position <tt class="docutils literal"><span class="pre">i</span></tt> on both views it's elements are equal.
 
 </dd>
-<dt id="view"><a name="view,seq[T],HSlice[A: SomeIndex,B: SomeIndex]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">view</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="view,seq[T][T],HSlice[A: SomeIndex,B: SomeIndex]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#view%2Cseq%5BT%5D%5BT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"><span class="Identifier">view</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-Creates a view for a part of an seq. It is the equivalent of an slice but no copies are made. If the compile option <cite>boundsCheck</cite> is on, it checks if the bounds are within the seq bounds here. Views can't be larger than the original data.
+
+Creates a view for a part of an seq. It is the equivalent of an slice but no copies are made. If the compile option <tt class="docutils literal"><span class="pre">boundsCheck</span></tt> is on, it checks if the bounds are within the seq bounds here. Views can't be larger than the original data.
 
 </dd>
-<dt id="view"><a name="view,string,HSlice[A: SomeIndex,B: SomeIndex]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">view</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="view,array[N,T],HSlice[A: SomeIndex,B: SomeIndex]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#view%2Carray%5BN%2CT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"><span class="Identifier">view</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">N</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">array</span><span class="Other">[</span><span class="Identifier">N</span><span class="Other">,</span> <span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-Creates a view for a part of an string. It is the equivalent of an slice but no copies are made. Also, there is no guarantee that the view will end in a <cite>0</cite>. If the compile option <cite>boundsCheck</cite> is on, it checks if the bounds are within the string bounds here. Views can't be larger than the original data.
+
+Creates a view for a part of an array. It is the equivalent of an slice but no copies are made. If the compile option <tt class="docutils literal"><span class="pre">boundsCheck</span></tt> is on, it checks if the bounds are within the array bounds here. Views can't be larger than the original data.
 
 </dd>
-<dt id="view"><a name="view,ptr.T,Positive"></a><pre><span class="Keyword">proc</span> <span class="Identifier">view</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">len</span><span class="Other">:</span> <span class="Identifier">Positive</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="view,string,HSlice[A: SomeIndex,B: SomeIndex]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#view%2Cstring%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"><span class="Identifier">view</span></a><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
+Creates a view for a part of an string. It is the equivalent of an slice but no copies are made. Also, there is no guarantee that the view will end in a <tt class="docutils literal"><span class="pre">0</span></tt>. If the compile option <tt class="docutils literal"><span class="pre">boundsCheck</span></tt> is on, it checks if the bounds are within the string bounds here. Views can't be larger than the original data.
+
+</dd>
+<a id="view,ptr.T,Positive"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#view%2Cptr.T%2CPositive"><span class="Identifier">view</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">len</span><span class="Other">:</span> <span class="Identifier">Positive</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
 Construct a view from a pointer to the first element of a contiguous memory region and a lenght. Can be used with C pointers for example. If you want a slice of the original data, either adjust the pointer to the starting place or call again view() on the output of this view().
 
 </dd>
-<dt id="view"><a name="view,MemView[T],HSlice[A: SomeIndex,B: SomeIndex]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">view</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="view,MemView[T],HSlice[A: SomeIndex,B: SomeIndex]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#view%2CMemView%5BT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"><span class="Identifier">view</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-Creates a view for a part of an array, seq or another view. It is the equivalent of an slice but no copies are made. If the compile option <cite>boundsCheck</cite> is on, it checks if the bounds are within the original MemView bounds here. Views can't be larger than the original data.
+
+Creates a view for a part of an array, seq or another view. It is the equivalent of an slice but no copies are made. If the compile option <tt class="docutils literal"><span class="pre">boundsCheck</span></tt> is on, it checks if the bounds are within the original MemView bounds here. Views can't be larger than the original data.
 
 </dd>
-<dt id="viewAs"><a name="viewAs,MemView[T],typedesc"></a><pre><span class="Keyword">proc</span> <span class="Identifier">viewAs</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">origData</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">destType</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">destType</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="viewAs,MemView[T],typedesc"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#viewAs%2CMemView%5BT%5D%2Ctypedesc"><span class="Identifier">viewAs</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">origData</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">destType</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">destType</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-Create a view reinterpreting a memory area as a different type. Automatically calculates the new lenght based on the floor of the division of <cite>origData</cite> byte lenght by <cite>sizeof(destType)</cite>.
+
+Create a view reinterpreting a memory area as a different type. Automatically calculates the new lenght based on the floor of the division of <tt class="docutils literal"><span class="pre">origData</span></tt> byte lenght by <tt class="docutils literal"><span class="pre">sizeof(destType)</span></tt>.
 
 </dd>
-<dt id="viewAs"><a name="viewAs,seq[T],typedesc"></a><pre><span class="Keyword">proc</span> <span class="Identifier">viewAs</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">origData</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">destType</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">destType</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="viewAs,seq[T][T],typedesc"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#viewAs%2Cseq%5BT%5D%5BT%5D%2Ctypedesc"><span class="Identifier">viewAs</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">origData</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">destType</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">destType</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-Create a view reinterpreting a memory area as a different type. Automatically calculates the new lenght based on the floor of the division of <cite>origData</cite> byte lenght by <cite>sizeof(destType)</cite>.
+
+Create a view reinterpreting a memory area as a different type. Automatically calculates the new lenght based on the floor of the division of <tt class="docutils literal"><span class="pre">origData</span></tt> byte lenght by <tt class="docutils literal"><span class="pre">sizeof(destType)</span></tt>.
 
 </dd>
-<dt id="[]"><a name="[],MemView[T],HSlice[A: SomeIndex,B: SomeIndex]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">`[]`</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="[],MemView[T],HSlice[A: SomeIndex,B: SomeIndex]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%2CMemView%5BT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D"><span class="Identifier">`[]`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-Slice operator for MemViews. Same as <cite>data.view(bounds)</cite>.
+
+Slice operator for MemViews. Same as <tt class="docutils literal"><span class="pre">data.view(bounds)</span></tt>.
 
 </dd>
-<dt id="[]="><a name="[]=,MemView[T],HSlice[A: SomeIndex,B: SomeIndex],"></a><pre><span class="Keyword">proc</span> <span class="Identifier">`[]=`</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">;</span>
-                           <span class="Identifier">source</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span class="Operator">|</span> <span class="Identifier">openArray</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span class="Operator">|</span> <span class="Identifier">string</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="[]=,MemView[T],HSlice[A: SomeIndex,B: SomeIndex],"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%5B%5D%3D%2CMemView%5BT%5D%2CHSlice%5BA%3A+SomeIndex%2CB%3A+SomeIndex%5D%2C"><span class="Identifier">`[]=`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">;</span> <span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">:</span> <span class="Identifier">SomeIndex</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">bounds</span><span class="Other">:</span> <span class="Identifier">HSlice</span><span class="Other">[</span><span class="Identifier">A</span><span class="Other">,</span> <span class="Identifier">B</span><span class="Other">]</span><span class="Other">;</span>
+                           <span class="Identifier">source</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span class="Operator">|</span> <span class="Identifier">openArray</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> <span class="Operator">|</span> <span class="Identifier">string</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-Slice assigment for MemViews. Non-shallow copy from the right to the left side. The lenght of the destination must be the same as the source. Unlike those defined for seqs and strings, this doesn't perform splicing as it is potentially very slow and we can't resize the underlying array in case of growing. If the compile option <cite>boundsCheck</cite> is on, it checks if the bounds are of the slice are valid and if the both lenghts are the same.<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">s</span> <span class="Operator">=</span> <span class="StringLit">&quot;abcdef&quot;</span>
+
+Slice assigment for MemViews. Non-shallow copy from the right to the left side. The lenght of the destination must be the same as the source. Unlike those defined for seqs and strings, this doesn't perform splicing as it is potentially very slow and we can't resize the underlying array in case of growing. If the compile option <tt class="docutils literal"><span class="pre">boundsCheck</span></tt> is on, it checks if the bounds of the slice are valid and if the both lenghts are the same.<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">s</span> <span class="Operator">=</span> <span class="StringLit">&quot;abcdef&quot;</span>
 <span class="Keyword">let</span> <span class="Identifier">v</span> <span class="Operator">=</span> <span class="Identifier">s</span><span class="Operator">.</span><span class="Identifier">view</span>
 <span class="Identifier">v</span><span class="Punctuation">[</span><span class="DecNumber">1</span> <span class="Operator">..&lt;</span> <span class="Operator">^</span><span class="DecNumber">2</span><span class="Punctuation">]</span> <span class="Operator">=</span> <span class="StringLit">&quot;xyz&quot;</span>
 <span class="Identifier">assert</span> <span class="Identifier">v</span> <span class="Operator">==</span> <span class="StringLit">&quot;axyzef&quot;</span><span class="Operator">.</span><span class="Identifier">view</span></pre>
 
 </dd>
-<dt id="dataPtr"><a name="dataPtr,MemView[T]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">dataPtr</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="dataPtr,MemView[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#dataPtr%2CMemView%5BT%5D"><span class="Identifier">dataPtr</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">ptr</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Retrive a pointer to the first element of the data that the view is accessing.
 
 </dd>
-<dt id="advance"><a name="advance,MemView[T],int"></a><pre><span class="Keyword">proc</span> <span class="Identifier">advance</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="DecNumber">1</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="advance,MemView[T],int"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#advance%2CMemView%5BT%5D%2Cint"><span class="Identifier">advance</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">x</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="DecNumber">1</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-<p>Advance the base of the seq by <cite>x</cite> positions. <cite>x</cite> can be negative. Equivalent to <tt class="docutils literal"><span class="pre">s[x .. ^1]</span></tt> but in-place, unsafe and more efficient. The lenght of the memview can become 0 or negative after calling this proc.</p>
+
+<p>Advance the base of the seq by <tt class="docutils literal"><span class="pre">x</span></tt> positions. <tt class="docutils literal"><span class="pre">x</span></tt> can be negative. Equivalent to <tt class="docutils literal"><span class="pre">s[x .. ^1]</span></tt> but in-place, unsafe and more efficient. The lenght of the memview can become 0 or negative after calling this proc.</p>
 <p>Prefer using standard iterators instead if applicable, for safety and ease of use. If an updated lenght is not needed every iteration, also consider pure pointer arithmetic.</p>
 
 
 </dd>
-<dt id="setLen"><a name="setLen,MemView[T],int"></a><pre><span class="Keyword">proc</span> <span class="Identifier">setLen</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">newLen</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="setLen,MemView[T],int"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#setLen%2CMemView%5BT%5D%2Cint"><span class="Identifier">setLen</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">newLen</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-Change the len of a view. Equivalent to using <cite>len=</cite> and equaly unsafe. Not sure if it's a good idea.
+
+Change the len of a view. Equivalent to using <tt class="docutils literal"><span class="pre">len=</span></tt> and equaly unsafe. Not sure if it's a good idea.
 
 </dd>
-<dt id="pop"><a name="pop,MemView[T]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">pop</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="pop,MemView[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#pop%2CMemView%5BT%5D"><span class="Identifier">pop</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
-Unsafe! Return the last element and decrement the lenght of <cite>v</cite>. The calling code is responsible to ensure there is at least one element left before calling this proc.
+
+Unsafe! Return the last element and decrement the lenght of <tt class="docutils literal"><span class="pre">v</span></tt>. The calling code is responsible to ensure there is at least one element left before calling this proc.
 
 </dd>
-<dt id="top"><a name="top,MemView[T]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">top</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="top,MemView[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#top%2CMemView%5BT%5D"><span class="Identifier">top</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Pure alias to v[^1] 
 
 </dd>
-<dt id="add"><a name="add,MemView[T],T"></a><pre><span class="Keyword">proc</span> <span class="Identifier">add</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="add,MemView[T],T"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#add%2CMemView%5BT%5D%2CT"><span class="Identifier">add</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Unsafe! Add an element to a memview, incrementing it's length. Unlike with seqs, strings and other native nim types, it will never resize the underlying data array and, as MemView don't have a capacity field, it can't make a meaningful bounds checks either. Both of those things are responsability of the calling code.
 
 </dd>
-<dt id="allocMemView"><a name="allocMemView,typedesc,Natural"></a><pre><span class="Keyword">proc</span> <span class="Identifier">allocMemView</span><span class="Other">(</span><span class="Identifier">typ</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">;</span> <span class="Identifier">len</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">typ</span><span class="Other">]</span></pre></dt>
+<a id="add,MemView[T],MemView[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#add%2CMemView%5BT%5D%2CMemView%5BT%5D"><span class="Identifier">add</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
+Unsafe! Appends the <tt class="docutils literal"><span class="pre">m</span></tt> memview to <tt class="docutils literal"><span class="pre">v</span></tt> memview, incrementing it's length. Unlike with seqs, strings and other native nim types, it will never resize the underlying data array and, as MemView don't have a capacity field, it can't make a meaningful bounds checks either. Both of those things are responsability of the calling code.
+
+</dd>
+<a id="allocMemView,typedesc,Natural"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#allocMemView%2Ctypedesc%2CNatural"><span class="Identifier">allocMemView</span></a><span class="Other">(</span><span class="Identifier">typ</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">;</span> <span class="Identifier">len</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">typ</span><span class="Other">]</span></pre></dt>
+<dd>
+
 <p>Alloc memory via alloc() and return it in the form of a MemView.</p>
 <p>Will not be freed automatically by the GC, so it requires a call to dealloc(mview.dataPtr) after use.</p>
 
 
 </dd>
-<dt id="alloc0MemView"><a name="alloc0MemView,typedesc,Natural"></a><pre><span class="Keyword">proc</span> <span class="Identifier">alloc0MemView</span><span class="Other">(</span><span class="Identifier">typ</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">;</span> <span class="Identifier">len</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">typ</span><span class="Other">]</span></pre></dt>
+<a id="alloc0MemView,typedesc,Natural"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#alloc0MemView%2Ctypedesc%2CNatural"><span class="Identifier">alloc0MemView</span></a><span class="Other">(</span><span class="Identifier">typ</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">;</span> <span class="Identifier">len</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">typ</span><span class="Other">]</span></pre></dt>
 <dd>
+
 <p>Alloc memory via alloc0() and return it in the form of a MemView.</p>
 <p>Will not be freed automatically by the GC, so it requires a call to dealloc(mview.dataPtr) after use. </p>
 
 
 </dd>
-<dt id="$"><a name="$,MemView[T]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">`$`</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
+<a id="$,MemView[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#%24%2CMemView%5BT%5D"><span class="Identifier">`$`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
 <dd>
+
 Gives a string representation of a view as if it was an array.
 
 </dd>
-<dt id="toSeq"><a name="toSeq,MemView[T]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">toSeq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
+<a id="toSeq,MemView[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#toSeq%2CMemView%5BT%5D"><span class="Identifier">toSeq</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
 <dd>
+
 Shallow copy the content from the memview to a new seq.
 
 </dd>
-<dt id="toString"><a name="toString,MemView[char]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">toString</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="toString,MemView[char]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#toString%2CMemView%5Bchar%5D"><span class="Identifier">toString</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Copy the content from the memview to a new string.
 
 </dd>
-<dt id="storeToFile"><a name="storeToFile,MemView[T],string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">storeToFile</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">fname</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span></pre></dt>
+<a id="hash,MemView[T]"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#hash%2CMemView%5BT%5D"><span class="Identifier">hash</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Hash</span></pre></dt>
 <dd>
+
+
+
+</dd>
+<a id="storeToFile,MemView[T],string"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#storeToFile%2CMemView%5BT%5D%2Cstring"><span class="Identifier">storeToFile</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">v</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">fname</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span></pre></dt>
+<dd>
+
 Stores sequence of raw bytes of a MemView to a file, with the native endianess and no special metadata.
 
 </dd>
-<dt id="loadFromFile"><a name="loadFromFile,MemView[T],string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">loadFromFile</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">dest</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">fname</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int64</span></pre></dt>
+<a id="loadFromFile,MemView[T],string"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#loadFromFile%2CMemView%5BT%5D%2Cstring"><span class="Identifier">loadFromFile</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">dest</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">fname</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int64</span></pre></dt>
 <dd>
-<p>Load raw bytes from file and cast the result to the <cite>dest</cite> type.</p>
-<p><cite>dest</cite> lenght must be enough to hold the entire file content. The lenght will be shortened to equal the file content's lenght and the return value will be 0. Otherwise, this proc will not do anything and return the required lenght.</p>
+
+<p>Load raw bytes from file and cast the result to the <tt class="docutils literal"><span class="pre">dest</span></tt> type.</p>
+<p><tt class="docutils literal"><span class="pre">dest</span></tt> lenght must be enough to hold the entire file content. The lenght will be shortened to equal the file content's lenght and the return value will be 0. Otherwise, this proc will not do anything and return the required lenght.</p>
 
 
 </dd>
-<dt id="loadFromFile"><a name="loadFromFile,seq[T],string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">loadFromFile</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">dest</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">fname</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span></pre></dt>
+<a id="loadFromFile,seq[T][T],string"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#loadFromFile%2Cseq%5BT%5D%5BT%5D%2Cstring"><span class="Identifier">loadFromFile</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">dest</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">fname</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span></pre></dt>
 <dd>
-Load raw bytes from file and cast the result to the <cite>dest</cite> type. <cite>dest</cite> will be automatically resized to hold the data.
+
+Load raw bytes from file and cast the result to the <tt class="docutils literal"><span class="pre">dest</span></tt> type. <tt class="docutils literal"><span class="pre">dest</span></tt> will be automatically resized to hold the data.
 
 </dd>
 
@@ -1510,39 +1184,61 @@ Load raw bytes from file and cast the result to the <cite>dest</cite> type. <cit
 <div class="section" id="15">
 <h1><a class="toc-backref" href="#15">Iterators</a></h1>
 <dl class="item">
-<dt id="items"><a name="items.i,MemView[T]"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">items</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="items.i,MemView[T]"></a>
+<dt><pre><span class="Keyword">iterator</span> <a href="#items.i%2CMemView%5BT%5D"><span class="Identifier">items</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Iterate over all items of a view.
 
 </dd>
-<dt id="mitems"><a name="mitems.i,MemView[T]"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">mitems</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="mitems.i,MemView[T]"></a>
+<dt><pre><span class="Keyword">iterator</span> <a href="#mitems.i%2CMemView%5BT%5D"><span class="Identifier">mitems</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Iterate over all items of a view and be capable to change them in place.
 
 </dd>
-<dt id="pairs"><a name="pairs.i,MemView[T]"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">pairs</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">key</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">,</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="pairs.i,MemView[T]"></a>
+<dt><pre><span class="Keyword">iterator</span> <a href="#pairs.i%2CMemView%5BT%5D"><span class="Identifier">pairs</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">key</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">,</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Iterate over all (index, item) pairs of a view.
 
 </dd>
-<dt id="mpairs"><a name="mpairs.i,MemView[T]"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">mpairs</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">key</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">,</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">inline</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="mpairs.i,MemView[T]"></a>
+<dt><pre><span class="Keyword">iterator</span> <a href="#mpairs.i%2CMemView%5BT%5D"><span class="Identifier">mpairs</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">key</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">,</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">T</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">inline</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 Iterate over all (index, item) pairs of a view.
 
 </dd>
-<dt id="shallowSplit"><a name="shallowSplit.i,MemView[char],set[char]"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">shallowSplit</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">seps</span><span class="Other">:</span> <span class="Identifier">set</span><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span> <span class="Other">=</span> <span class="Identifier">Whitespace</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma">
-    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">IndexError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<a id="shallowSplit.i,MemView[char],set[char]"></a>
+<dt><pre><span class="Keyword">iterator</span> <a href="#shallowSplit.i%2CMemView%5Bchar%5D%2Cset%5Bchar%5D"><span class="Identifier">shallowSplit</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">seps</span><span class="Other">:</span> <span class="Identifier">set</span><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span> <span class="Other">=</span> <span class="Identifier">Whitespace</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
+    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">IndexError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
+
 
 
 </dd>
-<dt id="shallowSplit"><a name="shallowSplit.i,MemView[T],T"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">shallowSplit</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">sep</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
+<a id="shallowSplit.i,MemView[T],T"></a>
+<dt><pre><span class="Keyword">iterator</span> <a href="#shallowSplit.i%2CMemView%5BT%5D%2CT"><span class="Identifier">shallowSplit</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">sep</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
 <dd>
+
 
 
 </dd>
-<dt id="shallowSplit"><a name="shallowSplit.i,MemView[T],MemView[T]"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">shallowSplit</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">sep</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">MemView</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
+<a id="shallowSplit.i,MemView[T],MemView[T]"></a>
+<dt><pre><span class="Keyword">iterator</span> <a href="#shallowSplit.i%2CMemView%5BT%5D%2CMemView%5BT%5D"><span class="Identifier">shallowSplit</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">sep</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
 <dd>
+
+
+
+</dd>
+<a id="tokenize.i,MemView[char],set[char]"></a>
+<dt><pre><span class="Keyword">iterator</span> <a href="#tokenize.i%2CMemView%5Bchar%5D%2Cset%5Bchar%5D"><span class="Identifier">tokenize</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">seps</span><span class="Other">:</span> <span class="Identifier">set</span><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span> <span class="Other">=</span> <span class="Identifier">Whitespace</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span>
+    <span class="Identifier">token</span><span class="Other">:</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">isSep</span><span class="Other">:</span> <span class="Identifier">bool</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">IndexError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
 
 
 </dd>
@@ -1551,8 +1247,10 @@ Iterate over all (index, item) pairs of a view.
 <div class="section" id="18">
 <h1><a class="toc-backref" href="#18">Templates</a></h1>
 <dl class="item">
-<dt id="view"><a name="view.t,"></a><pre><span class="Keyword">template</span> <span class="Identifier">view</span><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Operator">|</span> <span class="Identifier">MemView</span> <span class="Operator">|</span> <span class="Identifier">seq</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<a id="view.t"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#view.t"><span class="Identifier">view</span></a><span class="Other">(</span><span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Operator">|</span> <a href="memviews.html#MemView"><span class="Identifier">MemView</span></a> <span class="Operator">|</span> <span class="Identifier">seq</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
 <dd>
+
 Create a view of the entire seq/string. It is the equivalent of: data.view(0 .. ^1)
 
 </dd>
@@ -1566,7 +1264,7 @@ Create a view of the entire seq/string. It is the equivalent of: data.view(0 .. 
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2018-08-11 21:03:57 UTC</small>
+        <small>Made with Nim. Generated: 2019-12-11 20:33:28 UTC</small>
       </div>
     </div>
   </div>
