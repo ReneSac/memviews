@@ -49,10 +49,10 @@ template xBoundsCheck(s, i) =
   when compileOption("boundChecks"):  # d:danger should disable this.
     if unlikely(i >= s.len or i < 0): 
       if s.len == 0:
-        raise newException(IndexError,
+        raise newException(IndexDefect,
                            "index out of bounds, the memview is empty")
       else:
-        raise newException(IndexError,
+        raise newException(IndexDefect,
                            "index " & $i & " not in 0 .. " & $(s.len-1))
   discard
 
@@ -98,8 +98,8 @@ proc `==`*[T](a, b: MemView[T]): bool {.inline.} =
 template sliceBoundsCheck(data, bounds) =
   when compileOption("boundChecks"):  # d:danger disables this.
     if unlikely(data^^bounds.a < 0 or (data^^bounds.b) >= data.len or
-                data^^bounds.a > data^^bounds.b):
-      raise newException(IndexError, "Out of bounds: asked for [" &
+                data^^bounds.a > (data^^bounds.b + 1)): # the +1 at the end is for not erroring for empty slices with [0,-1]
+      raise newException(IndexDefect, "Out of bounds: asked for [" &
                           $(data^^bounds.a) & ", " & $(data^^bounds.b) &
                           "] from [0, " & $data.len & "].")
   discard
@@ -205,7 +205,7 @@ proc `[]=`*[T; A, B: SomeIndex](data: MemView[T], bounds: HSlice[A, B],
   when compileOption("boundChecks"):  # d:danger disables this.
     let slen = data^^bounds.b - data^^bounds.a + 1
     if unlikely(slen != source.len):
-      raise newException(IndexError, "Out of bounds:" &
+      raise newException(IndexDefect, "Out of bounds:" &
         "differing lenghts between slice: " & $slen & " and source: " &
         $source.len & "." )
   for i in 0 ..< source.len:
@@ -253,7 +253,8 @@ proc add*[T](v: var MemView[T], val: T) {.inline.} =
   ## the underlying data array and, as MemView don't have a capacity field, it 
   ## can't make a meaningful bounds checks either. Both of those things are 
   ## responsability of the calling code.
-  v[+++v.len] = val
+  ++v.len
+  v[^1] = val
  
 proc add*[T](v: var MemView[T], m: MemView[T]) {.inline.} =
   ## Unsafe! Appends the `m` memview to `v` memview, incrementing it's length.
@@ -261,8 +262,10 @@ proc add*[T](v: var MemView[T], m: MemView[T]) {.inline.} =
   ## the underlying data array and, as MemView don't have a capacity field, it 
   ## can't make a meaningful bounds checks either. Both of those things are 
   ## responsability of the calling code.
+  var pos = v.len
+  v.len += m.len
   for val in m:
-    v[+++v.len] = val
+    v[+++pos] = val
 
 # Some conversions
 
